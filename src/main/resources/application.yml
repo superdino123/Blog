@@ -1,0 +1,43 @@
+# server common config
+server:
+   # 服务端端口
+   port: 8698
+   tomcat:
+      # 最大线程数
+      maxThreads: 200
+      # 最大线程数[兼容写法]
+      max-threads: 200
+      # 最大连接数 
+      maxConnections: 1000
+      # 最大连接数[兼容写法]
+      max-connections: 1000
+      # 最小线程数
+      min-spare-threads: 100 
+      #
+      accept-count: 18000 
+      #
+      max-http-post-size: -1 
+# spring common config
+spring:
+   servlet:
+      multipart:
+         # 上传文件最大值
+         max-file-size: 150MB 
+         #
+         max-request-size: 150MB 
+   http:
+      multipart:
+         #
+         maxFileSize: 150MB 
+         #
+         maxRequestSize: 150MB 
+# netty config
+netty: 
+   # 调度线程池大小
+   bossGroupCount: 4
+   # 工作线程池大小
+   workGroupCount: 20
+   # 连接队列大小
+   nettyBackLog: 1000
+   # 服务端TCP监听端口
+   nettyServerPort: 8699
