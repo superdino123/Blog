@@ -19,10 +19,10 @@ public class ChannelBufferByteInput implements ByteInput {
         // nothing to do
     }
 
-    @Override
-    public int available() throws IOException {
-        return buffer.readableBytes();
-    }
+	@Override
+	public int available() throws IOException {
+		return buffer.readableBytes();
+	}
 
     @Override
     public int read() throws IOException {

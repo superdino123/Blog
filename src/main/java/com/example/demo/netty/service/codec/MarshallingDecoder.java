@@ -18,6 +18,7 @@ public class MarshallingDecoder {
 
 	/**
 	 * 解码
+	 * 
 	 * @param in 二进制数据流
 	 * @return
 	 * @throws Exception

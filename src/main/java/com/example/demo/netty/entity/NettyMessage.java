@@ -6,6 +6,7 @@ import com.example.demo.netty.service.constant.MessageTypeEnum;
 
 /**
  * Netty消息编解码
+ * 
  * @author Administrator
  *
  */
@@ -20,19 +21,20 @@ public final class NettyMessage implements Serializable {
 	 * 用户相关信息， 标识结构体属于哪一用户，不做为二进制流在管道中传递
 	 */
 	private TabCuRegist user;
-	
+
 	/**
 	 * 业务无关的标识数据
 	 */
 	private Header header;
-	
+
 	/**
 	 * 业务数据
 	 */
 	private Object body;
 
 	/**
-	 * 封装心跳数据包 
+	 * 封装心跳数据包
+	 * 
 	 * @param userName
 	 * @return
 	 */
@@ -46,7 +48,7 @@ public final class NettyMessage implements Serializable {
 		msg.setUser(user);
 		return msg;
 	}
-	
+
 	public TabCuRegist getUser() {
 		return user;
 	}

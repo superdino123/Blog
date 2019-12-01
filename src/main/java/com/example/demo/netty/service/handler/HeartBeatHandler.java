@@ -26,18 +26,18 @@ public class HeartBeatHandler extends SimpleChannelInboundHandler<NettyMessage> 
 
 		// 判断标志位是否为心跳
 		boolean isvalid = !ObjectUtils.isEmpty(msg) && !ObjectUtils.isEmpty(msg.getHeader())
-                && msg.getHeader().getType() == MessageTypeEnum.HEARTBEAT_REQ.getValue();
+				&& msg.getHeader().getType() == MessageTypeEnum.HEARTBEAT_REQ.getValue();
 		if (isvalid) {
 			InetSocketAddress address = (InetSocketAddress) ctx.channel().remoteAddress();
-			
+
 			// 如果channel可用，记录接受并发送心跳
 			if (ctx.channel().isActive() && ctx.channel().isOpen()) {
 				NettyMessage response = NettyMessage.buildHeartBeatMessage("username1");
-				
+
 				// TODO 写入心跳
 				ChannelFuture channelFuture = ctx.writeAndFlush(response);
 				channelFuture.addListener(new ChannelFutureListener() {
-					
+
 					@Override
 					public void operationComplete(ChannelFuture future) {
 						if (future.isSuccess()) {
@@ -55,8 +55,8 @@ public class HeartBeatHandler extends SimpleChannelInboundHandler<NettyMessage> 
 			}
 		} else {
 			// 沿事件链继续传递
-        	ctx.fireChannelRead(msg);
-        }
+			ctx.fireChannelRead(msg);
+		}
 	}
 
     @Override

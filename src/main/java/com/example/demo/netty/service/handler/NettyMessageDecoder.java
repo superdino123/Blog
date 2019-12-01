@@ -18,16 +18,13 @@ public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
 	private MarshallingDecoder marshallingDecoder;
 	
 	/**
-     * Creates a new instance.
-     *
-     * @param maxFrameLength 
-     *        消息的最大长度限制，如果长度超过这个限制，抛出{@link TooLongFrameException}错误
-     * @param lengthFieldOffset
-     *        字段的最大偏移量
-     * @param lengthFieldLength
-     *        字段的最大长度
-	 * @throws Exception 
-     */
+	 * Creates a new instance.
+	 *
+	 * @param maxFrameLength    消息的最大长度限制，如果长度超过这个限制，抛出{@link TooLongFrameException}错误
+	 * @param lengthFieldOffset 字段的最大偏移量
+	 * @param lengthFieldLength 字段的最大长度
+	 * @throws Exception
+	 */
 	public NettyMessageDecoder(int maxFrameLength, int lengthFieldOffset, int lengthFieldLength) throws Exception {
 		super(maxFrameLength, lengthFieldOffset, lengthFieldLength);
 		marshallingDecoder = new MarshallingDecoder();

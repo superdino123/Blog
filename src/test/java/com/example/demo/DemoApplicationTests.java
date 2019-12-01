@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.example.demo.entity.Article;
-import com.example.demo.init.InitService;
-import com.example.demo.service.ArticleService;
+import com.diplant.blog.entity.Article;
+import com.diplant.blog.init.InitService;
+import com.diplant.blog.service.ArticleService;
 
 @SpringBootTest
 public class DemoApplicationTests {
@@ -24,7 +24,7 @@ public class DemoApplicationTests {
 
 	@Test
 	void articleTest() {
-		Article a = articleService.selectArticleById(1);
+		Article a = articleService.selectArticleById("1");
 		logger.info(a.toString());
 	}
 }

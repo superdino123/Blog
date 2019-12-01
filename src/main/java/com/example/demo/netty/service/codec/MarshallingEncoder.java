@@ -18,6 +18,7 @@ public class MarshallingEncoder {
 
 	/**
 	 * 解码
+	 * 
 	 * @param msg 业务数据结构体
 	 * @param out
 	 * @throws Exception

@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.diplant.blog.entity;
 
 import java.util.Date;
 
@@ -10,7 +10,7 @@ public class Article {
 	/**
 	 * 文章ID
 	 */
-	private Integer id;
+	private String id;
 
 	/**
 	 * 文章标题
@@ -44,11 +44,11 @@ public class Article {
 				+ "}";
 	}
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

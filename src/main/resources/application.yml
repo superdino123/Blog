@@ -32,16 +32,16 @@ spring:
          #
          maxRequestSize: 150MB 
    datasource:
-      url: jdbc:mysql://localhost:3306/diplant_blog?characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+      url: jdbc:mysql://172.16.60.87:3306/diplant_blog?characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
       username: root
-      password: root
+      password: 
       # 可省略驱动配置, sprin-boot 会由url检测出驱动类型
-      # driver-class-name: com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
       hikari:
          connection-timeout: 60000
 mybatis:
    mapperLocations: classpath:mapper/*.xml
-   typeAliasesPackage: com.example.demo.entity
+   typeAliasesPackage: com.diplant.blog.entity
 # spring-boot默认打印输出info级别以上的，可在此处修改输出级别
 logging:
    level:

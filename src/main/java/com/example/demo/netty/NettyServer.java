@@ -58,7 +58,7 @@ public class NettyServer {
 
 	@Value("${netty.nettyServerPort}")
 	private String nettyServerPort;
-	
+
 	/**
 	 * 初始化服务端
 	 * 
@@ -119,7 +119,7 @@ public class NettyServer {
 			ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.ADVANCED);
 			ChannelFuture future = bs.bind(Integer.valueOf(nettyServerPort)).sync();
 			// 阻塞等待关闭
-			future.channel().closeFuture().sync(); 
+			future.channel().closeFuture().sync();
 		} catch (Exception e) {
 			// TODO log
 		} finally {
