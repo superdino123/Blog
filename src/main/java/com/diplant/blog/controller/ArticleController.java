@@ -1,6 +1,7 @@
 package com.diplant.blog.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,11 +25,11 @@ public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
 	
-	@RequestMapping(value = "/articleList", method = RequestMethod.POST)
-	public @ResponseBody Object articleList(@RequestBody Object filterInfo) {
+	@RequestMapping(value = "/articleList", method = RequestMethod.GET)
+	public @ResponseBody Object articleList() {
 		try {
-
-			return "ok";
+			List<Article> articles = articleService.selectArticles();
+			return articles;
 		} catch (Throwable e) {
 			log.error("[{}]: unknowed error", "获取文章列表",e);
 			return null;
@@ -59,7 +60,7 @@ public class ArticleController {
 			}
 		} catch (Throwable e) {
 			log.error("[{}]: unknowed error", "添加文章列表",e);
-			return false;
+			return "false";
 		}
 	}
 }

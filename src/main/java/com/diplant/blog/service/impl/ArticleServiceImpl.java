@@ -1,5 +1,7 @@
 package com.diplant.blog.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,10 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public int insertArticle(Article article) {
 		return articleDao.insertArticle(article);
+	}
+
+	@Override
+	public List<Article> selectArticles() {
+		return articleDao.selectArticles();
 	}
 }

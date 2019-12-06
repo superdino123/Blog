@@ -36,6 +36,11 @@ public class Article {
 	 * 阅读数
 	 */
 	private Long readCount;
+	
+	/**
+	 * 摘要
+	 */
+	private String desc;
 
 	@Override
 	public String toString() {
@@ -90,5 +95,13 @@ public class Article {
 
 	public void setReadCount(Long readCount) {
 		this.readCount = readCount;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
 	}
 }
