@@ -5,7 +5,7 @@ var EventUtil = {
      * @param {事件类型} type 
      * @param {事件处理程序} handler 
      */
-    addHandler: function(element, type, handler) {
+    addHandler: function (element, type, handler) {
         if (element.addEventListener) {
             element.addEventListener(type, handler, false);
         } else if (element.attachEvent) {
@@ -20,7 +20,7 @@ var EventUtil = {
      * @param {事件类型} type 
      * @param {事件处理程序} handler 
      */
-    removeHandler: function(element, type, handler) {
+    removeHandler: function (element, type, handler) {
         if (element.removeEventListener) {
             element.removeEventListener(type, handler, false);
         } else if (element.detachEvent) {
@@ -30,3 +30,19 @@ var EventUtil = {
         }
     }
 };
+
+var UrlUtil = {
+    /**
+     * 从URL中解析出参数值
+     * @param {参数名称} name 
+     */
+    getParamValue: function getParamValue(name) {
+        const reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        const urlObj = window.location;
+        var r = urlObj.href.indexOf('#') > -1 ? urlObj.hash.split("?")[1].match(reg) : urlObj.search.substr(1).match(reg);
+        if (r != null) {
+            return unescape(r[2]);
+        }
+        return null;
+    }
+}

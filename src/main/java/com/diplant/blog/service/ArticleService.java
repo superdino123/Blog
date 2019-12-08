@@ -10,8 +10,14 @@ import com.diplant.blog.entity.Article;
 public interface ArticleService {
 
 	public List<Article> selectArticles();
+
+	public List<Article> selectArticles(Integer page);
+	
+	public String getPageSize();
 	
 	public Article selectArticleById(String id);
 
 	public int insertArticle(Article article);
+
+	public int updateArticle(Article article);
 }

@@ -10,7 +10,7 @@ public class Article {
 	/**
 	 * 文章ID
 	 */
-	private String id;
+	private Integer id;
 
 	/**
 	 * 文章标题
@@ -40,7 +40,7 @@ public class Article {
 	/**
 	 * 摘要
 	 */
-	private String desc;
+	private String articleDesc;
 
 	@Override
 	public String toString() {
@@ -49,11 +49,11 @@ public class Article {
 				+ "}";
 	}
 
-	public String getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -97,11 +97,11 @@ public class Article {
 		this.readCount = readCount;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getArticleDesc() {
+		return articleDesc;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setArticleDesc(String articleDesc) {
+		this.articleDesc = articleDesc;
 	}
 }

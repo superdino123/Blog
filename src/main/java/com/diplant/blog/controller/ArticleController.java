@@ -26,16 +26,32 @@ public class ArticleController {
 	private ArticleService articleService;
 	
 	@RequestMapping(value = "/articleList", method = RequestMethod.GET)
-	public @ResponseBody Object articleList() {
+	public @ResponseBody Object articleList(String page) {
 		try {
-			List<Article> articles = articleService.selectArticles();
+			List<Article> articles = null;
+			if (page != null) {
+				Integer pageInt = Integer.valueOf(page);
+				articles = articleService.selectArticles(pageInt);
+			} else {
+				articles = articleService.selectArticles();
+			}
 			return articles;
 		} catch (Throwable e) {
 			log.error("[{}]: unknowed error", "获取文章列表",e);
 			return null;
 		}
 	}
-	
+
+	@RequestMapping(value = "/articlePageSize", method = RequestMethod.GET)
+	public @ResponseBody Object articlePageSize() {
+		try {
+			return articleService.getPageSize();
+		} catch (Throwable e) {
+			log.error("[{}]: unknowed error", "获取文章总页数",e);
+			return null;
+		}
+	}
+
 	@RequestMapping(value = "/articleById", method = RequestMethod.GET)
 	public @ResponseBody Object articleById(@RequestParam String id) {
 		try {
@@ -47,19 +63,28 @@ public class ArticleController {
 		}
 	}
 
-	@RequestMapping(value = "/addArticle", method = RequestMethod.POST)
+	@RequestMapping(value = "/putArticle", method = RequestMethod.POST)
 	public @ResponseBody Object articleById(@RequestBody Article article) {
 		try {
-			article.setCreateTime(new Date());
-			article.setModifyTime(new Date());
-			article.setReadCount(1L);
-			if(1 == articleService.insertArticle(article)) {
-				return "ok";
+			if (article.getId() == null) {
+				article.setCreateTime(new Date());
+				article.setModifyTime(new Date());
+				article.setReadCount(1L);
+				if(1 == articleService.insertArticle(article)) {
+					return "insert ok";
+				} else {
+					return "insert false";
+				}				
 			} else {
-				return "false";
+				article.setModifyTime(new Date());
+				if(1 == articleService.updateArticle(article)) {
+					return "update ok";
+				} else {
+					return "update false";
+				}
 			}
 		} catch (Throwable e) {
-			log.error("[{}]: unknowed error", "添加文章列表",e);
+			log.error("[{}]: unknowed error", "添加/更新文章列表",e);
 			return "false";
 		}
 	}

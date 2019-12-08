@@ -3,20 +3,30 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
 <mapper namespace="com.diplant.blog.dao.ArticleDao">  
 	<insert id="insertArticle">
-		INSERT INTO di_article (
+		insert into di_article (
 			id, 
 			title, 
 			createtime, 
 			modifytime, 
 			content, 
-			readcount
-		) VALUES (
-			#{article.id, jdbcType=VARCHAR},
-			#{article.title, jdbcType=NUMERIC},
+			readcount,
+			articledesc
+		) values (
+			#{article.id, jdbcType=NUMERIC},
+			#{article.title, jdbcType=VARCHAR},
 			#{article.createTime,jdbcType=DATE},
 			#{article.modifyTime,jdbcType=DATE},
 			#{article.content,jdbcType=CLOB},
-			#{article.readCount,jdbcType=NUMERIC}
+			#{article.readCount,jdbcType=NUMERIC},
+			#{article.articleDesc,jdbcType=VARCHAR}
 		)
 	</insert>
+	<update id="updateArticle">
+		update di_article set
+			title = #{article.title, jdbcType=VARCHAR},
+			modifytime = #{article.modifyTime,jdbcType=DATE},
+			articledesc = #{article.articleDesc,jdbcType=VARCHAR},
+			content = #{article.content,jdbcType=CLOB}
+		where id = #{article.id, jdbcType=NUMERIC}
+	</update>
 </mapper>

@@ -32,9 +32,9 @@ spring:
          #
          maxRequestSize: 150MB 
    datasource:
-      url: jdbc:mysql://127.0.0.1:3306/diplant_blog?characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
+      url: jdbc:mysql://172.16.60.90:3306/diplant_blog?characterEncoding=UTF-8&useSSL=true&serverTimezone=UTC
       username: root
-      password: 
+      password: 123456
       # 可省略驱动配置, sprin-boot 会由url检测出驱动类型
       driver-class-name: com.mysql.cj.jdbc.Driver
       hikari:

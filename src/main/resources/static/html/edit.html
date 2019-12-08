@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>帝植的博客</title>
+    <link rel="stylesheet" href="../markdown/css/editormd.css" />
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <div id="layout" class="row">
+            <div class="col-md-2"></div>
+            <div id="articleListDiv" class="col-md-8">
+                <div class="page-header">
+                    <h1>文章编辑 <small>记录美好生活</small></h1>
+                </div>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="titleInput" class="col-sm-1 control-label">标题</label>
+                        <div class="col-sm-11">
+                            <input type="email" class="form-control" id="titleInput" placeholder="请输入文章标题...">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="descInput" class="col-sm-1 control-label">摘要</label>
+                        <div class="col-sm-11">
+                            <textarea class="form-control" id="descInput" placeholder="请输入文章摘要..." rows="3"></textarea>
+                        </div>
+                    </div>
+                </form>
+                <div class="editormd" id="editormd">
+                    <textarea id="editortextarea" class="editormd-markdown-textarea"
+                        name="test-editormd-markdown-doc"></textarea>
+                    <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+                    <textarea class="editormd-html-textarea" name="text"></textarea>
+                </div>
+                <div>
+                    <button id="submitbtn" type="button" class="btn btn-info">提交</button>
+                    <a class="btn btn-info" href="./index.html" role="button">返回</a>
+                </div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <script src="../bootstrap/js/bootstrap.js"></script>
+    <script src="../js/jquery-3.4.1.js"></script>
+    <script src="../markdown/editormd.js"></script>
+    <script type="text/javascript" src="../js/common.js"></script>
+    <script type="text/javascript" src="../js/article.js"></script>
+    <script type="text/javascript">
+        // 加载数据
+        EventUtil.addHandler(window, "load", function () {
+            var id = UrlUtil.getParamValue("id");
+            if (id != null) {
+                ArticleUtil.getEditArticleById(id);
+            }
+        });
+        $(function () {
+            editormd("editormd", {
+                width: "100%",
+                height: 640,
+                syncScrolling: "single",
+                //你的lib目录的路径，和你引入js,css路径一样
+                path: "../markdown/lib/",
+                //这个配置在simple.html中并没有，但是为了能够提交表单，使用这个配置可以让构造出来的HTML代码直接在第二个隐藏的textarea域中，方便post提交表单。
+                saveHTMLToTextarea: true,
+                imageUpload: true,
+                imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                imageUploadURL: "../image"
+            });
+        });
+        var submitbtn = document.getElementById("submitbtn");
+        EventUtil.addHandler(submitbtn, "click", ArticleUtil.putArticle);
+    </script>
+</body>
+
+</html>
