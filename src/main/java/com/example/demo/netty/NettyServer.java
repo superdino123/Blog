@@ -26,6 +26,11 @@ import io.netty.util.ResourceLeakDetector;
 import io.netty.util.concurrent.DefaultEventExecutorGroup;
 import io.netty.util.concurrent.EventExecutorGroup;
 
+/**
+ * 
+ * @author diplant
+ *
+ */
 @Component
 public class NettyServer {
 

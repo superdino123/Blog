@@ -16,6 +16,7 @@ import io.netty.channel.ChannelHandler.Sharable;
 
 /**
  * 心跳处理服务
+ * @author diplant
  */
 @Sharable
 @Component

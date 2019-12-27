@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * 用户信息
+ * @author diplant
  */
 public class TabCuRegist implements Serializable {
 	

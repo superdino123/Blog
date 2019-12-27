@@ -7,6 +7,7 @@ import io.netty.buffer.ByteBuf;
 
 /**
  * 解码服务类
+ * @author diplant
  */
 public class MarshallingDecoder {
 

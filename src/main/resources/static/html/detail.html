@@ -28,7 +28,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a id="editbtn" href="" target="_blank"> 编辑 <span class="sr-only">(current)</span></a></li>
+                    <li class="active"><a id="editbtn" href="" target="_blank"> 编辑 <span
+                                class="sr-only">(current)</span></a></li>
                     <li><a href="#">Link</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -68,24 +69,30 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <!-- 面板 -->
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <!-- 标题 阅读数 修改时间 -->
-            <div class="page-header">
-                <h1 id="detailTitle"></h1>
-                <div>
-                    更新时间：
-                    <span id="detailTime" class="label label-info"></span>
-                    阅读数：
-                    <span id="detailReadCount" class="label label-info"></span>
-                </div>
+    <div class="container">
+        <!-- 面板 -->
+        <div class="row">
+            <div class="col-md-2">
+                <!-- 文章大纲 -->
+                <div id="detailCategory" style="position:fixed;" class="list-group"></div>
             </div>
-            <!-- 正文 -->
-            <div id="detailContent"></div>
+            <div class="col-md-1"></div>
+            <div class="col-md-8">
+                <!-- 标题 阅读数 修改时间 -->
+                <div class="page-header">
+                    <h1 id="detailTitle"></h1>
+                    <div>
+                        更新时间：
+                        <span id="detailTime" class="label label-info"></span>
+                        阅读数：
+                        <span id="detailReadCount" class="label label-info"></span>
+                    </div>
+                </div>
+                <!-- 正文 -->
+                <div id="detailContent" class="col-md-12"></div>
+            </div>
+            <div class="col-md-1"></div>
         </div>
-        <div class="col-md-2"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

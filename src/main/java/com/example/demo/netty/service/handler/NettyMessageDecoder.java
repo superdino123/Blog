@@ -12,10 +12,13 @@ import io.netty.util.ReferenceCountUtil;
 
 /**
  * Netty消息解码服务
+ * @author diplant
  */
 public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
 
 	private MarshallingDecoder marshallingDecoder;
+	
+	private int count = 4;
 	
 	/**
 	 * Creates a new instance.
@@ -33,6 +36,7 @@ public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
 	/**
 	 * 解码
 	 */
+	@Override
 	protected Object decode(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
 		// 解码
 		ByteBuf frame = (ByteBuf) super.decode(ctx, in);
@@ -43,11 +47,11 @@ public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
 		NettyMessage message = new NettyMessage();
 		Header header = new Header();
 		header.setLength(frame.readInt());
-		header.setSessionID(frame.readLong());
+		header.setSessionId(frame.readLong());
 		header.setType(frame.readByte());
 		header.setPriority(frame.readByte());
 
-		if (frame.readableBytes() > 4) {
+		if (frame.readableBytes() > count) {
 		    message.setBody(marshallingDecoder.decode(frame));
 		}
 		message.setHeader(header);

@@ -2,6 +2,7 @@ package com.example.demo.netty.service.constant;
 
 /**
  * 消息类别
+ * @author diplant
  */
 public enum MessageTypeEnum {
 

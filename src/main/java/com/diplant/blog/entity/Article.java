@@ -4,6 +4,7 @@ import java.util.Date;
 
 /**
  * 文章结构
+ * @author diplant
  */
 public class Article {
 

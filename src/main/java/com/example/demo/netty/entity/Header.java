@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 /**
  * Netty消息体头部信息
+ * @author diplant
  */
 public class Header implements Serializable {
 
@@ -20,7 +21,7 @@ public class Header implements Serializable {
 	/**
 	 * 会话ID
 	 */
-    private long sessionID;
+    private long sessionId;
 
     /**
      * 消息类型
@@ -40,12 +41,12 @@ public class Header implements Serializable {
 		this.length = length;
 	}
 
-	public long getSessionID() {
-		return sessionID;
+	public long getSessionId() {
+		return sessionId;
 	}
 
-	public void setSessionID(long sessionID) {
-		this.sessionID = sessionID;
+	public void setSessionId(long sessionId) {
+		this.sessionId = sessionId;
 	}
 
 	public byte getType() {

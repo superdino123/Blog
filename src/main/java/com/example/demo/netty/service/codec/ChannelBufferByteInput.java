@@ -6,6 +6,11 @@ import org.jboss.marshalling.ByteInput;
 
 import io.netty.buffer.ByteBuf;
 
+/**
+ * 
+ * @author diplant
+ *
+ */
 public class ChannelBufferByteInput implements ByteInput {
 
     private final ByteBuf buffer;

@@ -9,6 +9,11 @@ import com.diplant.blog.dao.ArticleDao;
 import com.diplant.blog.entity.Article;
 import com.diplant.blog.service.ArticleService;
 
+/**
+ * 
+ * @author diplant
+ *
+ */
 @Service
 public class ArticleServiceImpl implements ArticleService {
 

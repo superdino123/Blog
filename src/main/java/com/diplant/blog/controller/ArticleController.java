@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.diplant.blog.entity.Article;
 import com.diplant.blog.service.ArticleService;
 
+/**
+ * 
+ * @author diplant
+ *
+ */
 @RequestMapping(value = "/Article")
 @Controller
 public class ArticleController {

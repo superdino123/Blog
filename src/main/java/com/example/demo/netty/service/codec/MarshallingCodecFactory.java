@@ -8,6 +8,7 @@ import org.jboss.marshalling.Unmarshaller;
 
 /**
  * 编解码工厂
+ * @author diplant
  */
 public class MarshallingCodecFactory {
 

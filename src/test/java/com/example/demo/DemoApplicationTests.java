@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,11 @@ import com.diplant.blog.entity.Article;
 import com.diplant.blog.init.InitService;
 import com.diplant.blog.service.ArticleService;
 
+/**
+ * 
+ * @author diplant
+ *
+ */
 @SpringBootTest
 public class DemoApplicationTests {
 
@@ -17,14 +21,4 @@ public class DemoApplicationTests {
 
 	@Autowired
 	private ArticleService articleService;
-
-	@Test
-	void contextLoads() {
-	}
-
-	@Test
-	void articleTest() {
-		Article a = articleService.selectArticleById("1");
-		logger.info(a.toString());
-	}
 }

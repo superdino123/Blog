@@ -6,6 +6,7 @@ import io.netty.buffer.ByteBuf;
 
 /**
  * 编码服务类
+ * @author diplant
  */
 public class MarshallingEncoder {
 

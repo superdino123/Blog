@@ -9,6 +9,7 @@ import io.netty.handler.codec.MessageToByteEncoder;
 
 /**
  * Netty消息编码服务
+ * @author diplant
  */
 public class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage> {
 
@@ -23,11 +24,12 @@ public class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage> {
 	 */
 	@Override
 	public void encode(ChannelHandlerContext ctx, NettyMessage msg, ByteBuf out) throws Exception {
-		if (msg == null || msg.getHeader() == null)
+		if (msg == null || msg.getHeader() == null) {
 			throw new Exception("The encode message is null");
+		}
 		// header
 		out.writeInt((msg.getHeader().getLength()));
-		out.writeLong((msg.getHeader().getSessionID()));
+		out.writeLong((msg.getHeader().getSessionId()));
 		out.writeByte((msg.getHeader().getType()));
 		out.writeByte((msg.getHeader().getPriority()));
 		// body

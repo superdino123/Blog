@@ -170,6 +170,22 @@ function loadArticleHtml() {
     time.innerText = ArticleUtil.article["modifyTime"];
     readCount.innerText = ArticleUtil.article["readCount"];
     detailContent.innerHTML = marked(ArticleUtil.article["content"]);
+
+    loadDetailCategoryHtml(detailContent);
+}
+
+function loadDetailCategoryHtml(detailContent) {
+    var detailCategory = document.getElementById("detailCategory");
+
+    var hElements = detailContent.querySelectorAll("h1");
+    for (var i = 0; i < hElements.length; i++) {
+        var a = document.createElement("a");
+        a.setAttribute("class", "list-group-item");
+        a.setAttribute("href", "#dc" + i);
+        a.innerText = hElements.item(i).innerText;
+        hElements.item(i).setAttribute("id", "dc" + i);
+        detailCategory.appendChild(a);
+    }
 }
 
 /**
@@ -217,7 +233,7 @@ function loadPageingHtml() {
     var liList = {};
     for (var i = 1; i <= pageSize; i++) {
         var li = document.createElement("li");
-        liList[i] =li;
+        liList[i] = li;
         pagingUl.appendChild(li);
         var a = document.createElement("a");
         li.appendChild(a);
